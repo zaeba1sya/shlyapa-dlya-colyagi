@@ -6,6 +6,7 @@ const LoginBlock = (): JSX.Element => {
   const text = styled.h3`
     font-size: medium;
     color: var(--text-white);
+    margin-right: 1rem;
   `;
   return (
     <Flex>

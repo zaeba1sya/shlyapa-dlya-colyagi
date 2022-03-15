@@ -8,15 +8,13 @@ const JumbotronCustom = (): JSX.Element => {
   return (
     <Wrapper
       image={
-        'url(https://i.pinimg.com/originals/d1/cd/66/d1cd66d2391260f1793464203866f94d.png)'
+        'url("https://i.pinimg.com/originals/d1/cd/66/d1cd66d2391260f1793464203866f94d.png")'
       }
     >
       <section>
         <div>
           <div>
-            <div>
-              <MyLogo size={'small'} text={'CodeShop'} />
-            </div>
+            <div>{/* <MyLogo size={'small'} text={'CodeShop'} /> */}</div>
             <h6>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid,
               officia.
