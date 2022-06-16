@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 
 interface ILayoutProps {
   children: ReactNode;
-  type: string;
+  type?: string;
 }
 
 interface IWrapperProps {
@@ -16,4 +16,13 @@ interface IMyImage {
   type?: string;
 }
 
-export type { ILayoutProps, IWrapperProps, IMyImage };
+interface IProduct {
+  id: number;
+  title: string;
+  price: string;
+  category: string;
+  description: string;
+  image: string;
+}
+
+export type { ILayoutProps, IWrapperProps, IMyImage, IProduct };

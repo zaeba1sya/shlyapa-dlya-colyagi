@@ -1,6 +1,7 @@
 // Dependencies
 import '../styles/globals.css';
 import type { AppProps } from 'next/app';
+import 'animate.css';
 
 // Layout HOC
 import Layout from '../HOC/layout';

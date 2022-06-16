@@ -4,6 +4,21 @@ import { Wrapper, Container } from '../../src/ContentManager/Content';
 import MyLogo from '../../src/UI/MyImage';
 import image from '../../public/assets/triangle.png';
 
+const MyText = styled.p<{ fs?: string; fw?: string }>`
+  text-align: center;
+  font-size: ${(props) => props.fs || '1rem'};
+  font-weight: ${(props) => props.fw || 500};
+`;
+
+const CenteredBlock = styled.div`
+  width: 100%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
 const JumbotronCustom = (): JSX.Element => {
   return (
     <Wrapper
@@ -11,24 +26,19 @@ const JumbotronCustom = (): JSX.Element => {
         'url("https://i.pinimg.com/originals/d1/cd/66/d1cd66d2391260f1793464203866f94d.png")'
       }
     >
-      <section>
-        <div>
-          <div>
-            <div>{/* <MyLogo size={'small'} text={'CodeShop'} /> */}</div>
-            <h6>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid,
-              officia.
-            </h6>
-            <h1>Lorem ipsum dolor sit amet.</h1>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo
-              voluptate est quo, cupiditate distinctio sequi nesciunt quod
-              deleniti voluptatem cumque odio vitae quae animi, debitis ut
-              minima saepe laborum cum.
-            </p>
-          </div>
-        </div>
-      </section>
+      <CenteredBlock>
+        <MyText
+          fs="2rem"
+          fw="700"
+          className="animate__animated animate__fadeIn animate__delay-1s animate__slow"
+        >
+          <strong>Code Wear</strong>
+        </MyText>
+        <div style={{ height: '30%', width: '100%' }} />
+        <MyText fs="2rem" fw="300" style={{ opacity: '0' }}>
+          Clothing store specifically for programmers
+        </MyText>
+      </CenteredBlock>
     </Wrapper>
   );
 };

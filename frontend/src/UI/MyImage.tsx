@@ -2,29 +2,25 @@ import { IMyImage } from '../../interfaces/interfaces';
 import styled from 'styled-components';
 import Image from 'next/image';
 
-const MyLogo = ({
-  size = 'large',
-  text = '',
-  type = 'row',
-}: IMyImage): JSX.Element => {
-  const ImageBlock = styled.div`
-    position: ${type === 'row' ? 'block' : 'relative'};
-    width: 5rem;
-    height: 5rem;
-  `;
+const ImageBlock = styled.div<{ type?: string }>`
+  position: ${(props) => (props.type === 'row' ? 'block' : 'relative')};
+  width: 5rem;
+  height: 5rem;
+`;
 
-  const ImageText = styled.p`
-    width: 100%;
-    display: flex;
-    align-items: center;
-    height: 100%;
-    font-size: ${size === 'large' ? '1rem' : '0.5rem'};
-    position: ${type === 'row' ? 'block' : 'absolute'};
-    inset: 0;
-    color: var(--color-white);
-    font-weight: 700;
-  `;
+const ImageText = styled.p<{ size?: string; type?: string }>`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  font-size: ${(props) => (props.size === 'large' ? '1rem' : '0.5rem')};
+  position: ${(props) => (props.type === 'row' ? 'block' : 'absolute')};
+  inset: 0;
+  color: var(--color-white);
+  font-weight: 700;
+`;
 
+const MyLogo = ({ text = '' }: IMyImage): JSX.Element => {
   return (
     <ImageBlock>
       <Image

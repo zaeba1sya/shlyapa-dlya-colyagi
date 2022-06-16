@@ -1,13 +1,15 @@
 import styled from 'styled-components';
-import { IWrapperProps } from '../../interfaces/interfaces';
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<{ image?: string }>`
   width: 100vw;
-  height: 97vh;
-  background: ${(props: IWrapperProps) =>
-    props.image ? props.image : 'transparent'};
+  height: 90vh;
+  background: ${(props) => props.image || 'transparent'};
   background-size: cover;
-  background-position: 86% 80%;
+  background-position: 50% 50%;
+  color: var(--text-white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const Container = styled.div`
@@ -16,12 +18,21 @@ const Container = styled.div`
   background-color: transparent;
 `;
 
-const Flex = styled.div`
-  display: flex;
-  flex-direction: ${(props: any) =>
-    props.direction ? props.direction : 'row'};
-  justify-content: ${(props: any) =>
-    props.justify ? props.justify : 'center'};
+const MyText = styled.h3<{ fw?: string; fs?: string; color?: string }>`
+  font-size: ${(props) => props.fs || '1rem'};
+  font-weight: ${(props) => props.fw || '500'};
+  font-size: ${(props) => props.color || 'rgba(255, 255, 255, 0.8)'};
 `;
 
-export { Wrapper, Container, Flex };
+const Flex = styled.div<{
+  direction?: string;
+  justify?: string;
+  align?: string;
+}>`
+  display: flex;
+  flex-direction: ${(props) => props.direction || 'row'};
+  justify-content: ${(props) => props.justify || 'center'};
+  align-items: ${(props) => props.align || ''};
+`;
+
+export { Wrapper, Container, Flex, MyText };

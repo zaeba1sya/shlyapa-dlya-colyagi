@@ -1,18 +1,22 @@
 import type { NextPage } from 'next';
+import styled from 'styled-components';
 
 import Footer from '../components/Footer';
 import Header from '../components/Header';
-import { ILayoutProps } from '../interfaces/interfaces';
+import SideBar from '../components/SideBar';
 
-const Layout: NextPage<ILayoutProps> = ({
-  children,
-  type = 'index',
-}: ILayoutProps) => {
+import { ILayoutProps } from '../interfaces/interfaces';
+import { Flex } from '../src/ContentManager/Content';
+
+const Layout: NextPage<ILayoutProps> = ({ children }: ILayoutProps) => {
   return (
     <>
       <Header />
-      <div>{children}</div>
-      {type !== 'index' ? <Footer /> : null}
+      <Flex align="flex-start" style={{ width: '80%', margin: '3rem auto' }}>
+        <SideBar />
+        {children}
+      </Flex>
+      <Footer />
     </>
   );
 };
